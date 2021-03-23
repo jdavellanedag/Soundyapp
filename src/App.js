@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import firebase from "./utils/Firebase";
+import { ToastContainer } from "react-toastify";
 import "firebase/auth";
 import Auth from "./pages/Auth";
 
@@ -8,7 +9,9 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   firebase.auth().onAuthStateChanged((currentuser) => {
-    if (!currentuser) {
+    console.log(currentuser);
+    if (!currentuser?.emailVerified) {
+      firebase.auth().signOut();
       setUser(null);
     } else {
       setUser(currentuser);
@@ -20,7 +23,22 @@ const App = () => {
     return null;
   }
 
-  return !user ? <Auth /> : <UserLogged />;
+  return (
+    <>
+      {!user ? <Auth /> : <UserLogged />}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+      />
+    </>
+  );
 };
 
 // Mock for userloged, delete this thing in future
