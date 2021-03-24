@@ -152,7 +152,7 @@ const RegisterForm = ({ setSelectedForm }) => {
           </Button>
         </Form.Field>
       </Form>
-      <div className="register-form__options">
+      <div className="form__options">
         <p onClick={() => setSelectedForm(null)}>Volver</p>
         <p>
           ¿Ya tienes Soundy?{" "}

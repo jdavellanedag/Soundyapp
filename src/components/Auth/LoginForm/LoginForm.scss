@@ -1,0 +1,24 @@
+@import "../../../scss/index.scss";
+
+.login-form {
+  margin-top: 50px;
+  h1 {
+    color: $font-light;
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 20px;
+  }
+
+  .resend-verification-email {
+    color: $font-light;
+    padding: 20px 20px 0px 20px;
+    text-align: center;
+    span {
+      color: $primary-color;
+      font-weight: bold;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
