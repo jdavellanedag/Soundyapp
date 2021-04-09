@@ -1,0 +1,27 @@
+@import "../../../scss/index.scss";
+
+.ui.modal.basic-modal {
+  background-color: $bg-gray;
+  border-radius: 12px;
+
+  .header {
+    background-color: transparent;
+    color: $font-light;
+    text-align: center;
+    h3 {
+      margin: 0;
+    }
+    i {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .content {
+    background-color: transparent;
+    color: $font-light;
+  }
+}

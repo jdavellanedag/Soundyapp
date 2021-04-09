@@ -3,6 +3,7 @@ import firebase from "./utils/Firebase";
 import { ToastContainer } from "react-toastify";
 import "firebase/auth";
 import Auth from "./pages/Auth";
+import LoggedLayout from "./layouts/LoggedLayout";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <>
-      {!user ? <Auth /> : <UserLogged />}
+      {!user ? <Auth /> : <LoggedLayout user={user} />}
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -37,28 +38,6 @@ const App = () => {
         pauseOnHover={false}
       />
     </>
-  );
-};
-
-// Mock for userloged, delete this thing in future
-const UserLogged = () => {
-  const logout = () => {
-    firebase.auth().signOut();
-  };
-
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        height: "100vh",
-      }}
-    >
-      <h1>Usuario logeado</h1>
-      <button onClick={logout}>Cerrar sesion</button>
-    </div>
   );
 };
 

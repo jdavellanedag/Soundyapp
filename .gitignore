@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 *.env
+/react_dev_tools
 
 # testing
 /coverage
