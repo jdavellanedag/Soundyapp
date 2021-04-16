@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "../../routes/Routes";
 import "./LoggedLayout.scss";
 import MenuLeft from "../../components/MenuLeft";
+import TopBar from "../../components/TopBar/TopBar";
 
 const LoggedLayout = ({ user }) => {
   return (
@@ -14,7 +15,7 @@ const LoggedLayout = ({ user }) => {
             <MenuLeft user={user} />
           </Grid.Column>
           <Grid.Column className="content" width={13}>
-            <h2>TopBar</h2>
+            <TopBar user={user} />
             <Routes />
           </Grid.Column>
         </Grid.Row>

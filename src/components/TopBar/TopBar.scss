@@ -1,0 +1,42 @@
+@import "../../scss/index.scss";
+
+.top-bar {
+  align-items: center;
+  background-color: $bg-grey-dark-light;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 20px;
+  &__left {
+    i {
+      font-size: 10px !important;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &__right {
+    align-items: center;
+    display: flex;
+    a {
+      align-items: center;
+      color: $font-light;
+      display: flex;
+      margin-right: 20px;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      border-radius: 50px;
+    }
+    i {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

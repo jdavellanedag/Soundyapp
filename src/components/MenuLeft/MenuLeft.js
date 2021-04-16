@@ -14,6 +14,10 @@ const MenuLeft = ({ user, location }) => {
   const [contentModal, setContentModal] = useState(null);
 
   useEffect(() => {
+    setActiveMenu(location.pathname);
+  }, [location]);
+
+  useEffect(() => {
     isUserAdmin(user.uid).then((resp) => {
       setUserAdmin(resp);
     });
