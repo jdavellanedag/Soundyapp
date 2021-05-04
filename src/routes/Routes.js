@@ -1,8 +1,11 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "../pages/Home";
 
-const Routes = () => {
+//Pages
+import Home from "../pages/Home";
+import Settings from "../pages/Settings";
+
+const Routes = ({ user, setReloadApp }) => {
   return (
     <Switch>
       <Route path="/" exact>
@@ -12,7 +15,7 @@ const Routes = () => {
         <h1>Artists</h1>
       </Route>
       <Route path="/settings" exact>
-        <h1>Config</h1>
+        <Settings user={user} setReloadApp={setReloadApp} />
       </Route>
     </Switch>
   );

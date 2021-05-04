@@ -4,7 +4,7 @@
       margin-bottom: 5px;
 
       input {
-        background-color: $bg-gray;
+        background-color: lighten($bg-gray, 2.5%);
         border: 0;
         font-size: 16px;
         color: $font-light;

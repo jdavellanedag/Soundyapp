@@ -6,7 +6,7 @@ import "./LoggedLayout.scss";
 import MenuLeft from "../../components/MenuLeft";
 import TopBar from "../../components/TopBar/TopBar";
 
-const LoggedLayout = ({ user }) => {
+const LoggedLayout = ({ user, setReloadApp }) => {
   return (
     <Router>
       <Grid className="logged-layout">
@@ -16,7 +16,7 @@ const LoggedLayout = ({ user }) => {
           </Grid.Column>
           <Grid.Column className="content" width={13}>
             <TopBar user={user} />
-            <Routes />
+            <Routes user={user} setReloadApp={setReloadApp} />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row width={16}>
