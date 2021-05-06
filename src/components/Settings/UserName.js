@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button } from "semantic-ui-react";
 import { toast } from "react-toastify";
 import firebase from "../../utils/Firebase";
@@ -9,6 +9,7 @@ export const UserName = ({
   setShowModal,
   setTitleModal,
   setContentModal,
+  setReloadApp,
 }) => {
   const handlerUpdateName = () => {
     setTitleModal("Actualizar nombre de usuario");
@@ -16,6 +17,7 @@ export const UserName = ({
       <ChangeDisplayName
         displayName={user.displayName}
         setShowModal={setShowModal}
+        setReloadApp={setReloadApp}
       />
     );
     setShowModal(true);
@@ -31,18 +33,44 @@ export const UserName = ({
   );
 };
 
-const ChangeDisplayName = ({ displayName, setShowModal }) => {
-  const onSubmit = (e) => {
+const ChangeDisplayName = ({ displayName, setShowModal, setReloadApp }) => {
+  const [formData, setFormData] = useState({
+    displayName,
+  });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setShowModal(false);
+    if (!formData.displayName || formData.displayName === displayName) {
+      setShowModal(false);
+    } else {
+      try {
+        setIsLoading(true);
+        await firebase
+          .auth()
+          .currentUser.updateProfile({ displayName: formData.displayName });
+        setReloadApp((state) => !state);
+        toast.success("Nombre actualizado");
+      } catch (error) {
+        toast.error("Error al actualizar el nombre");
+      } finally {
+        setIsLoading(false);
+        setShowModal(false);
+      }
+    }
   };
 
   return (
     <Form onSubmit={onSubmit}>
       <Form.Field>
-        <Input defaultValue={displayName} />
+        <Input
+          defaultValue={displayName}
+          onChange={(e) => setFormData({ displayName: e.target.value })}
+        />
       </Form.Field>
-      <Button type="submit">Actualizar nombre</Button>
+      <Button type="submit" loading={isLoading}>
+        Actualizar nombre
+      </Button>
     </Form>
   );
 };

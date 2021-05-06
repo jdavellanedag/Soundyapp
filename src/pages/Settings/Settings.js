@@ -2,7 +2,9 @@ import React from "react";
 import { useState } from "react";
 import BasicModal from "../../components/Modal/BasicModal/BasicModal";
 import { UploadAvatar } from "../../components/Settings/UploadAvatar";
+import { UserEmail } from "../../components/Settings/UserEmail";
 import { UserName } from "../../components/Settings/UserName";
+import { UserPassword } from "../../components/Settings/UserPassword";
 
 import "./Settings.scss";
 
@@ -21,8 +23,20 @@ const Settings = ({ user, setReloadApp }) => {
           setShowModal={setShowModal}
           setTitleModal={setTitleModal}
           setContentModal={setContentModal}
+          setReloadApp={setReloadApp}
         />
       </div>
+      <UserEmail
+        user={user}
+        setShowModal={setShowModal}
+        setTitleModal={setTitleModal}
+        setContentModal={setContentModal}
+      />
+      <UserPassword
+        setShowModal={setShowModal}
+        setTitleModal={setTitleModal}
+        setContentModal={setContentModal}
+      />
       <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
         {contentModal}
       </BasicModal>

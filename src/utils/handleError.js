@@ -13,6 +13,9 @@ export const handleErrors = (code) => {
     case "auth/user-not-found":
       toast.warning("El usuario o la contraseña son incorrectos.");
       break;
+    case "auth/email-already-in-use":
+      toast.warning("El nuevo correo ya está en uso");
+      break;
     default:
       toast.error("Error de servicio");
       break;

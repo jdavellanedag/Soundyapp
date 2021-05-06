@@ -36,4 +36,16 @@
       }
     }
   }
+
+  .user-email,
+  .user-password {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    h3 {
+      margin: 0;
+    }
+  }
 }
