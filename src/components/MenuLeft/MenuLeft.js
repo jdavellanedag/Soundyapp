@@ -5,6 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 import "./MenuLeft.scss";
 import { isUserAdmin } from "../../utils/Api";
 import BasicModal from "../Modal/BasicModal/BasicModal";
+import { AddArtistForm } from "../Artists/AddArtisForm/AddArtistForm";
 
 const MenuLeft = ({ user, location }) => {
   const [activeMenu, setActiveMenu] = useState(location.pathname);
@@ -31,7 +32,7 @@ const MenuLeft = ({ user, location }) => {
     switch (type) {
       case "artist":
         setTitleModal("Nuevo artista");
-        setContentModal(<h2>Formulario nuevo artista</h2>);
+        setContentModal(<AddArtistForm setShowModal={setShowModal} />);
         setShowModal(true);
         break;
       case "song":
@@ -51,12 +52,7 @@ const MenuLeft = ({ user, location }) => {
     <>
       <Menu className="menu-left" vertical>
         <div className="top">
-          <Menu.Item
-            as={Link}
-            to="/"
-            active={activeMenu === "/"}
-            onClick={handlerMenu}
-          >
+          <Menu.Item as={Link} to="/" active={activeMenu === "/"} onClick={handlerMenu}>
             <Icon name="home" /> Inicio
           </Menu.Item>
           <Menu.Item
