@@ -4,7 +4,7 @@
       margin-bottom: 5px;
 
       input {
-        background-color: lighten($bg-gray, 2.5%);
+        background-color: lighten($bg-grey, 2.5%);
         border: 0;
         font-size: 16px;
         color: $font-light;
@@ -12,7 +12,7 @@
         &:hover,
         &:active,
         &:focus {
-          background-color: $bg-gray-hover;
+          background-color: $bg-grey-hover;
           border: 0;
         }
       }
@@ -64,7 +64,7 @@
       }
     }
     &:last-of-type {
-      color: $font-gray;
+      color: $font-grey;
       span {
         color: $font-light;
         text-decoration: underline;
