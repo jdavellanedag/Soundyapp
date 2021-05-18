@@ -6,6 +6,7 @@ import "./MenuLeft.scss";
 import { isUserAdmin } from "../../utils/Api";
 import BasicModal from "../Modal/BasicModal/BasicModal";
 import { AddArtistForm } from "../Artists/AddArtisForm/AddArtistForm";
+import AddAlbumForm from "../Album/AddAlbumForm/AddAlbumForm";
 
 const MenuLeft = ({ user, location }) => {
   const [activeMenu, setActiveMenu] = useState(location.pathname);
@@ -33,6 +34,11 @@ const MenuLeft = ({ user, location }) => {
       case "artist":
         setTitleModal("Nuevo artista");
         setContentModal(<AddArtistForm setShowModal={setShowModal} />);
+        setShowModal(true);
+        break;
+      case "album":
+        setTitleModal("Nuevo album");
+        setContentModal(<AddAlbumForm setShowModal={setShowModal} />);
         setShowModal(true);
         break;
       case "song":
@@ -68,6 +74,9 @@ const MenuLeft = ({ user, location }) => {
           <div className="footer">
             <Menu.Item onClick={() => handlerModal("artist")}>
               <Icon name="plus square outline" /> Nuevo Artista
+            </Menu.Item>
+            <Menu.Item onClick={() => handlerModal("album")}>
+              <Icon name="plus square outline" /> Nuevo Album
             </Menu.Item>
             <Menu.Item onClick={() => handlerModal("song")}>
               <Icon name="plus square outline" /> Nuevo Cancion

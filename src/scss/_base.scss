@@ -28,6 +28,26 @@
         }
       }
     }
+
+    .ui.dropdown {
+      background-color: $bg-grey-light;
+      font-size: 16px;
+      color: $font-light;
+      border: 0;
+
+      .search {
+        color: $font-light;
+      }
+
+      .menu {
+        background-color: $bg-grey-light;
+        border: 0;
+        .item {
+          border-color: $border-grey-dark;
+          color: $font-light;
+        }
+      }
+    }
   }
 
   .button {
